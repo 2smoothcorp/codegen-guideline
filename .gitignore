@@ -1,0 +1,4 @@
+src/services/graphql/api/
+node_modules/
+src/services/graphql/types-graphql.generated.tsx
+src/services/graphql/schema.graphql

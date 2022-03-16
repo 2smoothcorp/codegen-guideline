@@ -1,0 +1,29 @@
+overwrite: true
+schema: 'https://graphql-pokeapi.vercel.app/api/graphql'
+#documents: 'src/**/!(*.d).{ts,tsx}'
+#documents: './services/**/*.graphql'
+documents: './src/services/**/*.gql'
+generates:
+  ./src/services/graphql/api/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.tsx
+      baseTypesPath: ../types-graphql.generated.tsx
+      importTypesNamespace: SchemaTypes
+    plugins:
+      #- typescript-react-query
+      - typescript-react-apollo
+      - typescript-operations
+    config:
+      exposeQueryKeys: true
+      exposeDocument: true
+      exposeMutationKeys: true
+      exposeFetcher: true
+      fetcher:
+        func: '../../fetch#fetchData'
+        isReactHook: false
+        #endpoint: 'https://graphql-pokeapi.vercel.app/api/graphql'
+        #fetchParams: 
+        #  headers:
+        #    "Content-Type": "application/json"
+        

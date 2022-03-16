@@ -1,0 +1,19 @@
+overwrite: true
+schema: 'https://graphql-pokeapi.vercel.app/api/graphql'
+generates:
+  ./src/services/graphql/schema.graphql:
+    plugins:
+      - schema-ast
+  #./src/services/api/schema.json:
+  #  plugins: 
+  #    - introspection
+  ./src/services/graphql/types-graphql.generated.tsx:
+    plugins:
+      - typescript
+    config:
+      constEnums: true
+      enumsAsTypes: true
+      allowEnumStringTypes: true
+      skipTypename: true
+      useTypeImports: true
+ 
